@@ -23,3 +23,19 @@ menu_item.forEach((item) => {
 		mobile_menu.classList.toggle('active');
 	});
 });
+   // Close Modal
+    closeButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            this.parentElement.parentElement.style.display = "none";
+        });
+    });
+
+    // Close modal when clicking outside content
+    window.addEventListener("click", function (event) {
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+});
