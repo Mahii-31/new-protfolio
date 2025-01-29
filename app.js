@@ -23,6 +23,39 @@ menu_item.forEach((item) => {
 		mobile_menu.classList.toggle('active');
 	});
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const modalButtons = document.querySelectorAll(".view-more-btn");
+    const modals = document.querySelectorAll(".modal");
+    const closeButtons = document.querySelectorAll(".close-btn");
+
+    // Open Modal
+    modalButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = "block";
+            }
+        });
+    });
+
+    // Close Modal
+    closeButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            this.parentElement.parentElement.style.display = "none";
+        });
+    });
+
+    // Close modal when clicking outside content
+    window.addEventListener("click", function (event) {
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+});
+
    // Close Modal
     closeButtons.forEach(button => {
         button.addEventListener("click", function () {
