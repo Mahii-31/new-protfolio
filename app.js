@@ -8,21 +8,6 @@ hamburger.addEventListener('click', () => {
 	mobile_menu.classList.toggle('active');
 });
 
-document.addEventListener('scroll', () => {
-	var scroll_position = window.scrollY;
-	if (scroll_position > 250) {
-		header.style.backgroundColor = '#29323c';
-	} else {
-		header.style.backgroundColor = 'transparent';
-	}
-});
-
-menu_item.forEach((item) => {
-	item.addEventListener('click', () => {
-		hamburger.classList.toggle('active');
-		mobile_menu.classList.toggle('active');
-	});
-});
 document.addEventListener("DOMContentLoaded", function () {
     const modalButtons = document.querySelectorAll(".view-more-btn");
     const modals = document.querySelectorAll(".modal");
@@ -42,24 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close Modal
     closeButtons.forEach(button => {
         button.addEventListener("click", function () {
-            this.parentElement.parentElement.style.display = "none";
-        });
-    });
-
-    // Close modal when clicking outside content
-    window.addEventListener("click", function (event) {
-        modals.forEach(modal => {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-    });
-});
-
-   // Close Modal
-    closeButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            this.parentElement.parentElement.style.display = "none";
+            this.closest(".modal").style.display = "none";
         });
     });
 
